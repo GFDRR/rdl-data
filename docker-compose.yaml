@@ -4,8 +4,33 @@ services:
   database:
     build: .
     environment:
-      - POSTGRES_PASSWORD=postgres
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
     volumes:
       - ./data/postgresql:/var/lib/postgresql/data
     ports:
       - 5432:5432
+    networks:
+      - net0
+    restart: unless-stopped
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-postgres@local}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-postgres}
+    volumes:
+        - pgadmin:/root/.pgadmin
+    ports:
+      - "${PGADMIN_PORT:-5050}:80"
+    networks:
+      - net0
+    restart: unless-stopped
+
+networks:
+  net0:
+    driver: bridge
+
+volumes:
+  postgres:
+  pgadmin:

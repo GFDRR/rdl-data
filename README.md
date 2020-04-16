@@ -19,10 +19,10 @@ package from https://github.com/gem/oq-platform-taxtweb
 
 ## Getting started
 
-### Using docker
-
-Run local instance of postgis
+### Database
 
 ```bash
 docker-compose up
 ```
+
+This will spin up a postgre with postgix extension enabled and a pgadmin2 server
