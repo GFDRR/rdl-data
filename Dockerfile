@@ -1,6 +1,5 @@
 FROM postgis/postgis:11-3.0
-
-
+COPY sql/create-users.sql /docker-entrypoint-initdb.d/
 
 # ENV POSTGRES_DB my_database
 # ENV POSTGRES_PASSWORD=password
