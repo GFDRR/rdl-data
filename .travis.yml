@@ -3,26 +3,26 @@ language: python
 
 jobs:
   include:
-  - stage: test
-    env: PYTHON3
-    python: 3.6
-    install:
-     - pip -q install -U flake8
-     - sudo service postgresql stop
-    script:
-     - flake8 ./python/
+#   - stage: test
+#     env: PYTHON3
+#     python: 3.6
+#     install:
+#      - pip -q install -U flake8
+#      - sudo service postgresql stop
+#     script:
+#      - flake8 ./python/
 
-  # - stage: test
-  #   env: POSTGRES
-  #   addons:
-  #     postgresql: 11
-  #     apt:
-  #       packages:
-  #       - postgresql-11-postgis-2.5
-  #       - postgresql-11
-  #       - postgresql-client-11
-  #     global:
-  #       - PGPORT=5433
+  - stage: test
+    env: POSTGRES
+    addons:
+      postgresql: 11
+      apt:
+        packages:
+        - postgresql-11-postgis-2.5
+        - postgresql-11
+        - postgresql-client-11
+      global:
+        - PGPORT=5433
 
     before_script:
      - export PATH="/usr/lib/postgresql/11/bin:$PATH"
