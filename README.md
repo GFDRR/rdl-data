@@ -19,10 +19,18 @@ package from https://github.com/gem/oq-platform-taxtweb
 
 ## Getting started
 
-### Database
+### Start Local Database
+
+Prepare dump
+
+```
+make dump
+```
+
+Run local server
 
 ```bash
 docker-compose up
 ```
 
-This will spin up a postgre with postgix extension enabled and a pgadmin2 server
+This will spin up a new PostgreSQL server with postgix extension enabled and pgadmin2 server, check docker-compose to extract default usr/pwd.
