@@ -2,6 +2,11 @@ import json
 import pytest
 
 from src import app
+from src import common
+from src import exposure
+from src import hazard
+from src import loss
+from src import vulnerability
 
 @pytest.fixture()
 def apigw_event():
@@ -59,7 +64,6 @@ def apigw_event():
         "path": "/examplepath",
     }
 
-
 def test_lambda_handler(apigw_event, mocker):
     ret = app.lambda_handler(apigw_event, "")
     data = json.loads(ret["body"])
@@ -68,3 +72,28 @@ def test_lambda_handler(apigw_event, mocker):
     assert "status" in ret["body"]
     assert data["status"] == "ok"
     # assert "location" in data.dict_keys()
+
+def test_common_lambda_handler(apigw_event, mocker):
+    ret = common.lambda_handler(apigw_event, "")
+
+    assert ret["statusCode"] == 200
+
+def test_exposure_lambda_handler(apigw_event, mocker):
+    ret = exposure.lambda_handler(apigw_event, "")
+
+    assert ret["statusCode"] == 200
+
+def test_hazard_lambda_handler(apigw_event, mocker):
+    ret = hazard.lambda_handler(apigw_event, "")
+
+    assert ret["statusCode"] == 200
+
+def test_loss_lambda_handler(apigw_event, mocker):
+    ret = loss.lambda_handler(apigw_event, "")
+
+    assert ret["statusCode"] == 200
+
+def test_vulnerability_lambda_handler(apigw_event, mocker):
+    ret = vulnerability.lambda_handler(apigw_event, "")
+
+    assert ret["statusCode"] == 200

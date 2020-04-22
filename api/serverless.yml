@@ -58,7 +58,37 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-  hello:
+  common:
+    handler: src/common.lambda_handler
+    events:
+      - http:
+          path: /common
+          method: get
+  exposure:
+    handler: src/exposure.lambda_handler
+    events:
+      - http:
+          path: /exposure
+          method: get
+  hazard:
+    handler: src/hazard.lambda_handler
+    events:
+      - http:
+          path: /hazard
+          method: get
+  loss:
+    handler: src/loss.lambda_handler
+    events:
+      - http:
+          path: /loss
+          method: get
+  vulnerability:
+    handler: src/vulnerability.lambda_handler
+    events:
+      - http:
+          path: /vulnerability
+          method: get
+  healthCheck:
     handler: src/app.lambda_handler
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events

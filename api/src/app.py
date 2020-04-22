@@ -1,10 +1,6 @@
 # import requests
 import json
 
-import psycopg2
-import sqlalchemy
-#from sqlalchemy import create_engine
-
 def lambda_handler(event, context):
     """Pure Lambda function that hanles a api gateway event (request)
 
