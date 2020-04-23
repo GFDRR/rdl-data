@@ -1,4 +1,4 @@
-# Risk Data Library
+# Risk Data Library Database
 
 Challenge Fund Database combining Hazard, Exposure, Loss and Vulnerability
 schema into a single database
