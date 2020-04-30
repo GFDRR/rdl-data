@@ -5,4 +5,7 @@ openquake.engine
 psycopg2
 pandas
 sqlalchemy
+graphene_sqlalchemy
+flask
+Flask-GraphQL
 #
