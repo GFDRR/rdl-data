@@ -1,12 +1,7 @@
 import json
 import pytest
 
-from src import app
-from src import common
-from src import exposure
-from src import hazard
-from src import loss
-from src import vulnerability
+from handlers import app, common, exposure, hazard, loss, vulnerability
 
 @pytest.fixture()
 def apigw_event():
