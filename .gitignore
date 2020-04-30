@@ -111,3 +111,4 @@ db_settings.py.pg11
 
 data/postgresql
 sql/dump.sql
+dump
