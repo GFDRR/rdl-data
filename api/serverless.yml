@@ -77,7 +77,7 @@ functions:
           path: /hazard
           method: get
   loss:
-    handler: src/loss.lambda_handler
+    handler: handlers/loss.lambda_handler
     events:
       - http:
           path: /loss
