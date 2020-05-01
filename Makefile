@@ -14,3 +14,9 @@ stop:
 	docker-compose stop
 	rm -f sql/dump.sql
 .PHONY: stop
+
+
+initdb:
+	PGPASSWORD=postgres psql -h localhost -p 5432 -d postgres -U postgres < sql/examples/monsters.sql
+	# PGPASSWORD=postgres psql -h localhost -p 5432 -d rdl -U postgres < cf_all-20200304.sql
+.PHONY: initdb

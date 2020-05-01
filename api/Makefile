@@ -12,5 +12,5 @@ start:
 .PHONY: start
 
 graphql:
-	python ./graphql/app.py
+	python ./common/app.py
 .PHONY: graphql
