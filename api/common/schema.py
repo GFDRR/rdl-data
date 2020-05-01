@@ -24,7 +24,6 @@ class HazardTypeConnection(relay.Connection):
     class Meta:
         node = HazardType
 
-
 # PUBLIC SCHEMA
 
 class MonsterModel(SQLAlchemyObjectType):
