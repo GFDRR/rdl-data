@@ -4,11 +4,14 @@ import os
 import json
 from flask import Flask
 from flask_graphql import GraphQLView
-import graphene from graphql import GraphQLError
+import graphene
+from graphql import GraphQLError
 from graphene_sqlalchemy import SQLAlchemyConnectionField, SQLAlchemyObjectType, utils
 from sqlalchemy import Column, DateTime, ForeignKey, Integer, String, Sequence, func, create_engine
 from sqlalchemy.orm import backref, relationship, scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
+
+from schema import schema
 
 app = Flask(__name__)
 
@@ -32,45 +35,6 @@ def init_db():
     Base.metadata.create_all(bind=engine)
     db_session.commit()
 
-
-#############################################################################
-
-################################## MODELS ###################################
-
-class UserModel(Base):
-    __tablename__ = 'users'
-    id = Column(Integer, Sequence('users_id_seq'), primary_key=True)
-    name = Column(String)
-    balance = Column(Integer)
-
-
-#############################################################################
-
-
-################################## SCHEMA ###################################
-
-# Query #########################
-class User(SQLAlchemyObjectType):
-    class Meta:
-        model = UserModel
-
-
-class Query(graphene.ObjectType):
-    hello = graphene.String()
-
-    def resolve_hello(self, info):
-        return "Hello World!"
-
-    users = graphene.List(User)
-
-    def resolve_users(self, info):
-        query = User.get_query(info)
-        return query.all()
-
-
-schema = graphene.Schema(query=Query)
-
-
 # Flask app
 app.add_url_rule('/', view_func=GraphQLView.as_view('graphql', schema=schema, graphiql=True))
 
@@ -80,9 +44,7 @@ def shutdown_session(exception=None):
     db_session.remove()
 
 
-
 # Execution
-
 if os.environ.get('LAMBDA_LOCAL_DEVELOPMENT') == '1':
     if __name__ == '__main__':
         if os.environ.get('DATABASE_INIT') == '1':
@@ -116,7 +78,6 @@ def graphqlHandler(eventRequestBody, context={}):
 
 
 # Lambda handler
-
 responseHeaders = {
     'Content-Type': 'application/json',
     "Access-Control-Allow-Origin": "*",
@@ -124,8 +85,9 @@ responseHeaders = {
     "Access-Control-Allow-Headers": "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization",
 }
 
-
+# @app.route("/")
 def lambda_handler(event, context):
+    print("event: {}, context: {}".format(event, context))
     httpMethod = event.get('httpMethod')
     if (httpMethod == 'OPTIONS'):
         return {
@@ -140,33 +102,3 @@ def lambda_handler(event, context):
         'headers': responseHeaders,
         'body': json.dumps(responseBody)
     }
-
-
-
-###############################################################################
-
-
-# from flask import Flask
-# from flask_graphql import GraphQLView
-#
-# from models import db_session
-# from schema import schema
-#
-# app = Flask(__name__)
-# app.debug = True
-#
-# app.add_url_rule(
-#     '/graphql',
-#     view_func=GraphQLView.as_view(
-#         'graphql',
-#         schema=schema,
-#         graphiql=True # for having the GraphiQL interface
-#     )
-# )
-#
-# @app.teardown_appcontext
-# def shutdown_session(exception=None):
-#     db_session.remove()
-#
-# if __name__ == '__main__':
-#     app.run()

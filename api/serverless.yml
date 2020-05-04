@@ -25,7 +25,14 @@ functions:
       - http:
           path: /vulnerability
           method: get
-          
+  test:
+    handler: common/app.lambda_handler
+    events:
+      - http:
+          path: /
+          method: get
+
+
   healthCheck:
     handler: handlers/app.lambda_handler
     events:
