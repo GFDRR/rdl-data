@@ -1,0 +1,123 @@
+{
+  "contribution": {                                                             
+    "model_date": "2016-01-01",                                                 
+    "model_source": "AIR Worldwide",
+    "notes": "This data set was produced with financial support from the European Union in the framework of the ACP-EU Natural Disaster Risk Reduction Program, managed by the Global Facility for Disaster Reduction and Recovery (GFDRR)."
+    "version": "V1"
+    "project": "GFDRR South West Indian Ocean Risk Assessment and Financing Initiative (SWIO-RAFI)"
+    "license_code": "CC BY-SA 4.0",
+    "purpose": "Quantification of site specific risk of flood, earthquakes, tropical cyclones, storm surge and tsunamis, to support improvement in the resiliency and capacity of South West Indian Ocean island states through the creation of disaster risk financing strategies."              
+  },                                                                            
+  "description": "SWIO RAFI Madagascar Tropical Cyclone Storm Surge", 
+  "creation_date": "2016-01-01", 
+  "bibliography": "SWIO RAFI Report https://www.gfdrr.org/en/publication/southwest-indian-ocean-risk-assessment-and-financing-initiative-summary-report-and-risk", 
+  "hazard_type": "CF", 
+  "geographic_area_bb": [ -1, -1, 1, 1 ], 
+  "geographic_area_name": "Madagascar", 
+  "is_prob": "True",
+  "events": [
+    {
+      "calculation_method": "SIM",
+      "description": "MDG TC Storm Surge 25yr event, depth (m)", 
+      "frequency": 0.04,
+      "footprint_sets": [
+        {
+          "imt": "d_fss:m",
+          "process_type": "FSS",
+          "footprints": [
+            {
+              "_cf1_fp_data_query":
+                "ST_SetSRID(ST_Point(lon,lat), 4326) AS the_geom, i25_year AS intensity FROM public.mdg_tc_fss"
+            }
+          ] 
+        }
+      ]
+    },
+    {
+      "calculation_method": "SIM",
+      "description": "MDG TC Storm Surge 50yr event, depth (m)", 
+      "frequency": 0.02,
+      "footprint_sets": [
+        {
+          "imt": "d_fss:m",
+          "process_type": "FSS",
+          "footprints": [
+            {
+              "_cf1_fp_data_query":
+                "ST_SetSRID(ST_Point(lon,lat), 4326) AS the_geom, i50_year AS intensity FROM public.mdg_tc_fss"
+            }
+          ] 
+        }
+      ]
+    },
+    {
+      "calculation_method": "SIM",
+      "description": "MDG TC Storm Surge 100yr event, depth (m)", 
+      "frequency": 0.01,
+      "footprint_sets": [
+        {
+          "imt": "d_fss:m",
+          "process_type": "FSS",
+          "footprints": [
+            {
+              "_cf1_fp_data_query":
+                "ST_SetSRID(ST_Point(lon,lat), 4326) AS the_geom, i100_year AS intensity FROM public.mdg_tc_fss"
+            }
+          ] 
+        }
+      ]
+    },
+
+    {
+      "calculation_method": "SIM",
+      "description": "MDG TC Storm Surge 250yr event, depth (m)", 
+      "frequency": 0.004,
+      "footprint_sets": [
+        {
+          "imt": "d_fss:m",
+          "process_type": "FSS",
+          "footprints": [
+            {
+              "_cf1_fp_data_query":
+                "ST_SetSRID(ST_Point(lon,lat), 4326) AS the_geom, i250_year AS intensity FROM public.mdg_tc_fss"
+            }
+          ] 
+        }
+      ]
+    },
+    {
+      "calculation_method": "SIM",
+      "description": "MDG TC Storm Surge 500yr event, depth (m)", 
+      "frequency": 0.002,
+      "footprint_sets": [
+        {
+          "imt": "d_fss:m",
+          "process_type": "FSS",
+          "footprints": [
+            {
+              "_cf1_fp_data_query":
+                "ST_SetSRID(ST_Point(lon,lat), 4326) AS the_geom, i500_year AS intensity FROM public.mdg_tc_fss"
+            }
+          ] 
+        }
+      ]
+    },
+    {
+      "calculation_method": "SIM",
+      "description": "MDG TC Storm Surge 1000yr event, depth (m)", 
+      "frequency": 0.001,
+      "footprint_sets": [
+        {
+          "imt": "d_fss:m",
+          "process_type": "FSS",
+          "footprints": [
+            {
+              "_cf1_fp_data_query":
+                "ST_SetSRID(ST_Point(lon,lat), 4326) AS the_geom, i1000_year AS intensity FROM public.mdg_tc_fss"
+            }
+          ] 
+        }
+      ]
+    }
+  ]
+}

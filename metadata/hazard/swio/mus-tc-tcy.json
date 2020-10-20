@@ -1,0 +1,279 @@
+{
+  "contribution": {                                                             
+    "model_date": "2016-01-01",                                                 
+    "model_source": "AIR Worldwide",
+    "notes": "This data set was produced with financial support from the European Union in the framework of the ACP-EU Natural Disaster Risk Reduction Program, managed by the Global Facility for Disaster Reduction and Recovery (GFDRR)."
+    "version": "V1"
+    "project": "GFDRR South West Indian Ocean Risk Assessment and Financing Initiative (SWIO-RAFI)"
+    "license_code": "CC BY-SA 4.0",
+    "purpose": "Quantification of site specific risk of flood, earthquakes, tropical cyclones, storm surge and tsunamis, to support improvement in the resiliency and capacity of South West Indian Ocean island states through the creation of disaster risk financing strategies."              
+  },                                                                            
+  "is_prob": "True",
+  "description": "SWIO RAFI Mauritius Tropical Cyclone windfield", 
+  "creation_date": "2016-01-01", 
+  "bibliography": "SWIO RAFI Report https://www.gfdrr.org/en/publication/southwest-indian-ocean-risk-assessment-and-financing-initiative-summary-report-and-risk", 
+  "hazard_type": "WI", 
+  "geographic_area_bb": [ -1, -1, 1, 1 ], 
+  "geographic_area_name": "Mauritius", 
+  "events": [
+    {
+      "calculation_method": "SIM",
+      "description": "MUS TC Windfield 10yr event sustained wind (kph)", 
+      "frequency": 0.1,
+      "footprint_sets": [
+        {
+          "imt": "v_tcy(1m):km/h",
+          "process_type": "TCY",
+          "footprints": [
+            {
+              "_cf1_fp_data_query":
+                "ST_SetSRID(ST_Point(lon,lat), 4326) AS the_geom, i1min_10yr AS intensity FROM public.mus_tc_tcy"
+            }
+          ] 
+        },
+        {
+          "imt": "v_tcy(10m):km/h",
+          "process_type": "TCY",
+          "footprints": [
+            {
+              "_cf1_fp_data_query":
+                "ST_SetSRID(ST_Point(lon,lat), 4326) AS the_geom, i10min_10yr AS intensity FROM public.mus_tc_tcy"
+            }
+          ] 
+        },
+        {
+          "imt": "v_tcy(3s):km/h",
+          "process_type": "TCY",
+          "footprints": [
+            {
+              "_cf1_fp_data_query":
+                "ST_SetSRID(ST_Point(lon,lat), 4326) AS the_geom, i3sec_10yr AS intensity FROM public.mus_tc_tcy"
+            }
+          ] 
+        }
+      ]
+    },
+    {
+      "calculation_method": "SIM",
+      "description": "MUS TC Windfield 25yr event sustained wind (kph)", 
+      "frequency": 0.04,
+      "footprint_sets": [
+        {
+          "imt": "v_tcy(1m):km/h",
+          "process_type": "TCY",
+          "footprints": [
+            {
+              "_cf1_fp_data_query":
+                "ST_SetSRID(ST_Point(lon,lat), 4326) AS the_geom, i1min_25yr AS intensity FROM public.mus_tc_tcy"
+            }
+          ] 
+        },
+        {
+          "imt": "v_tcy(10m):km/h",
+          "process_type": "TCY",
+          "footprints": [
+            {
+              "_cf1_fp_data_query":
+                "ST_SetSRID(ST_Point(lon,lat), 4326) AS the_geom, i10min_25yr AS intensity FROM public.mus_tc_tcy"
+            }
+          ] 
+        },
+        {
+          "imt": "v_tcy(3s):km/h",
+          "process_type": "TCY",
+          "footprints": [
+            {
+              "_cf1_fp_data_query":
+                "ST_SetSRID(ST_Point(lon,lat), 4326) AS the_geom, i3sec_25yr AS intensity FROM public.mus_tc_tcy"
+            }
+          ] 
+        }
+      ]
+    },
+    {
+      "calculation_method": "SIM",
+      "description": "MUS TC Windfield 50yr event sustained wind (kph)", 
+      "frequency": 0.02,
+      "footprint_sets": [
+        {
+          "imt": "v_tcy(1m):km/h",
+          "process_type": "TCY",
+          "footprints": [
+            {
+              "_cf1_fp_data_query":
+                "ST_SetSRID(ST_Point(lon,lat), 4326) AS the_geom, i1min_50yr AS intensity FROM public.mus_tc_tcy"
+            }
+          ] 
+        },
+        {
+          "imt": "v_tcy(10m):km/h",
+          "process_type": "TCY",
+          "footprints": [
+            {
+              "_cf1_fp_data_query":
+                "ST_SetSRID(ST_Point(lon,lat), 4326) AS the_geom, i10min_50yr AS intensity FROM public.mus_tc_tcy"
+            }
+          ] 
+        },
+        {
+          "imt": "v_tcy(3s):km/h",
+          "process_type": "TCY",
+          "footprints": [
+            {
+              "_cf1_fp_data_query":
+                "ST_SetSRID(ST_Point(lon,lat), 4326) AS the_geom, i3sec_50yr AS intensity FROM public.mus_tc_tcy"
+            }
+          ] 
+        }
+      ]
+    },
+    {
+      "calculation_method": "SIM",
+      "description": "MUS TC Windfield 100yr event sustained wind (kph)", 
+      "frequency": 0.01,
+      "footprint_sets": [
+        {
+          "imt": "v_tcy(1m):km/h",
+          "process_type": "TCY",
+          "footprints": [
+            {
+              "_cf1_fp_data_query":
+                "ST_SetSRID(ST_Point(lon,lat), 4326) AS the_geom, i1min_100yr AS intensity FROM public.mus_tc_tcy"
+            }
+          ] 
+        },
+        {
+          "imt": "v_tcy(10m):km/h",
+          "process_type": "TCY",
+          "footprints": [
+            {
+              "_cf1_fp_data_query":
+                "ST_SetSRID(ST_Point(lon,lat), 4326) AS the_geom, i10min_100yr AS intensity FROM public.mus_tc_tcy"
+            }
+          ] 
+        },
+        {
+          "imt": "v_tcy(3s):km/h",
+          "process_type": "TCY",
+          "footprints": [
+            {
+              "_cf1_fp_data_query":
+                "ST_SetSRID(ST_Point(lon,lat), 4326) AS the_geom, i3sec_100yr AS intensity FROM public.mus_tc_tcy"
+            }
+          ] 
+        }
+      ]
+    },
+    {
+      "calculation_method": "SIM",
+      "description": "MUS TC Windfield 250yr event sustained wind (kph)", 
+      "frequency": 0.004,
+      "footprint_sets": [
+        {
+          "imt": "v_tcy(1m):km/h",
+          "process_type": "TCY",
+          "footprints": [
+            {
+              "_cf1_fp_data_query":
+                "ST_SetSRID(ST_Point(lon,lat), 4326) AS the_geom, i1min_250yr AS intensity FROM public.mus_tc_tcy"
+            }
+          ] 
+        },
+        {
+          "imt": "v_tcy(10m):km/h",
+          "process_type": "TCY",
+          "footprints": [
+            {
+              "_cf1_fp_data_query":
+                "ST_SetSRID(ST_Point(lon,lat), 4326) AS the_geom, i10min_250yr AS intensity FROM public.mus_tc_tcy"
+            }
+          ] 
+        },
+        {
+          "imt": "v_tcy(3s):km/h",
+          "process_type": "TCY",
+          "footprints": [
+            {
+              "_cf1_fp_data_query":
+                "ST_SetSRID(ST_Point(lon,lat), 4326) AS the_geom, i3sec_250yr AS intensity FROM public.mus_tc_tcy"
+            }
+          ] 
+        }
+      ]
+    },
+    {
+      "calculation_method": "SIM",
+      "description": "MUS TC Windfield 500yr event sustained wind (kph)", 
+      "frequency": 0.002,
+      "footprint_sets": [
+        {
+          "imt": "v_tcy(1m):km/h",
+          "process_type": "TCY",
+          "footprints": [
+            {
+              "_cf1_fp_data_query":
+                "ST_SetSRID(ST_Point(lon,lat), 4326) AS the_geom, i1min_500yr AS intensity FROM public.mus_tc_tcy"
+            }
+          ] 
+        },
+        {
+          "imt": "v_tcy(10m):km/h",
+          "process_type": "TCY",
+          "footprints": [
+            {
+              "_cf1_fp_data_query":
+                "ST_SetSRID(ST_Point(lon,lat), 4326) AS the_geom, i10min_500yr AS intensity FROM public.mus_tc_tcy"
+            }
+          ] 
+        },
+        {
+          "imt": "v_tcy(3s):km/h",
+          "process_type": "TCY",
+          "footprints": [
+            {
+              "_cf1_fp_data_query":
+                "ST_SetSRID(ST_Point(lon,lat), 4326) AS the_geom, i3sec_500yr AS intensity FROM public.mus_tc_tcy"
+            }
+          ] 
+        }
+      ]
+    },
+    {
+      "calculation_method": "SIM",
+      "description": "MUS TC Windfield 1000yr event sustained wind (kph)", 
+      "frequency": 0.0001,
+      "footprint_sets": [
+        {
+          "imt": "v_tcy(1m):km/h",
+          "process_type": "TCY",
+          "footprints": [
+            {
+              "_cf1_fp_data_query":
+                "ST_SetSRID(ST_Point(lon,lat), 4326) AS the_geom, i1min_1000yr AS intensity FROM public.mus_tc_tcy"
+            }
+          ] 
+        },
+        {
+          "imt": "v_tcy(10m):km/h",
+          "process_type": "TCY",
+          "footprints": [
+            {
+              "_cf1_fp_data_query":
+                "ST_SetSRID(ST_Point(lon,lat), 4326) AS the_geom, i10min_1000yr AS intensity FROM public.mus_tc_tcy"
+            }
+          ] 
+        },
+        {
+          "imt": "v_tcy(3s):km/h",
+          "process_type": "TCY",
+          "footprints": [
+            {
+              "_cf1_fp_data_query":
+                "ST_SetSRID(ST_Point(lon,lat), 4326) AS the_geom, i3sec_1000yr AS intensity FROM public.mus_tc_tcy"
+            }
+          ] 
+        }
+      ]
+    }   
+  ]
+}
