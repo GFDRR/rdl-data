@@ -337,7 +337,7 @@ def import_exposure_model(ex, nrml_file):
     """
     verbose_message("Model contains {0} assets\n" .format(len(ex.assets)))
     connections = db_connections(db_settings.db_confs)
-    connection = connections['gedcontrib']
+    connection = connections['ged4all_contrib']
 
     with connection.cursor() as cursor:
         model_id = _import_model(cursor, ex)
