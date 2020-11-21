@@ -24,7 +24,8 @@ Import a hazard scenario EventSet into the hazard scenario Database
 import sys
 from challenge_fund_db.common import Contribution
 from challenge_fund_db.common import db_connections
-import db_settings
+
+from . import db_settings
 
 
 VERBOSE = True

@@ -30,7 +30,7 @@ from loss_model import LossModel, LossMap, LossMapValue, \
     LossCurveMap, LossCurveMapValue
 from challenge_fund_db.common import Contribution
 from challenge_fund_db.common import db_connections
-import db_settings
+from . import db_settings
 
 VERBOSE = True
 
