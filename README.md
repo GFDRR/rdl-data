@@ -29,3 +29,31 @@ $ make start
 ```bash
 $ make stop
 ```
+
+### Local python setup
+
+These are instructions for cases where docker is not being used and only the `challenge_fund_db` interfaces are needed.
+
+Download or clone project:
+
+```bash
+$ git clone https://github.com/GFDRR/rdl-data.git
+```
+
+Install as a local development/editable package
+
+```bash
+$ cd rdl-data
+$ pip install -e .
+```
+
+Package can now be imported without modifying system paths:
+
+```python
+import challenge_fund_db as cf
+
+print(cf.hazard)
+```
+
+
+

@@ -113,3 +113,4 @@ data/postgresql
 sql/dump.sql
 dump
 private
+.vscode/settings.json

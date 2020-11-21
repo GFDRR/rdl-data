@@ -21,9 +21,9 @@
 import json
 import sys
 
-from mhs import Footprint, FootprintSet, Event, EventSet
+from .mhs import Footprint, FootprintSet, Event, EventSet
 
-from import_scenarios import import_event_set
+from .import_scenarios import import_event_set
 
 
 VERBOSE = True

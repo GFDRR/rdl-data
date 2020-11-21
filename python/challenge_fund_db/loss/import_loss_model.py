@@ -28,7 +28,7 @@ import sys
 from loss_model import LossModel
 from challenge_fund_db.common import Contribution
 from challenge_fund_db.common import db_connections
-import db_settings
+from . import db_settings
 
 VERBOSE = True
 
