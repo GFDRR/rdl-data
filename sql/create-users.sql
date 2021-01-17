@@ -14,9 +14,11 @@ GRANT hazardviewer TO hazardcontrib;
 CREATE ROLE ged4allusers NOLOGIN NOINHERIT;
 CREATE ROLE ged4allviewer NOLOGIN INHERIT;
 CREATE ROLE ged4allcontrib NOLOGIN INHERIT;
+CREATE ROLE gedcf NOLOGIN INHERIT;
 GRANT commonusers TO ged4allusers;
 GRANT ged4allusers TO ged4allviewer;
 GRANT ged4allviewer TO ged4allcontrib;
+GRANT ged4allcontrib TO gedcf;
 
 CREATE ROLE lossusers NOLOGIN NOINHERIT;
 CREATE ROLE lossviewer NOLOGIN INHERIT;
